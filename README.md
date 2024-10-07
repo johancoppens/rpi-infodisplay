@@ -185,14 +185,16 @@ $ crontab -e
 
 ...
 
-# Every weekday at 17:00. TV standby
-0 17 \* \* 1-5        echo 'standby 0.0.0.0' | cec-client -s -d 1 >/dev/null 2>&1
+# Every weekday at 16:30. TV standby
+30 16 * * 1-5   echo 'standby 0.0.0.0' | cec-client -s -d 1 >/dev/null 2>&1
 
 # Every weekday at 8:00. TV on
-0 8 \* \* 1-5         echo 'on 0.0.0.0; as' | cec-client -s -d 1 >/dev/null 2>&1
+0 8 * * 1-5     echo 'on 0.0.0.0; as' | cec-client -s -d 1 >/dev/null 2>&1
 
-# Every 1 minute between 08:00 and 17:00 (17:00 excluded) on weekdays. Ensure active HDMI source (Also turns display on).
-* 8-16 * * 1-5  echo 'as' | cec-client -s -d 1 >/dev/null 2>&1
+# Every 1 minute between 08:00 and 16:00 (16:00 excluded) on weekdays. Ensure active HDMI source (Also turns display on).
+* 8-15 * * 1-5  echo 'as' | cec-client -s -d 1 >/dev/null 2>&1
+
+
 
 ```
 
